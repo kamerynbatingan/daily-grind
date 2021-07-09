@@ -70,7 +70,7 @@
 		</ul>
 		 <p>
     		 <img src="images/pumpkin-spice-latte.jpg" alt="Our Pumpkin Spice Latte tastes great on a Fall Day!" id="coffee" />
-            <strong class="feature">Monday's Coffee Special:</strong> Monday's daily coffee special is <strong class="feature">Pumpkin Spice Latte</strong>, which makes us wish it was always Fall, as this is one of our top sellers!</p>
+           <strong class="feature">Monday's Coffee Special:</strong> Monday's daily coffee special is <strong class="feature">Pumpkin Spice Latte</strong>, which makes us wish it was always Fall, as this is one of our top sellers!</p>
      
      </main>
     <footer>
@@ -79,46 +79,47 @@
       <a href="http://jigsaw.w3.org/css-validator/check?uri=referer" target="_blank">Valid CSS</a>
       </small>
     </footer>
-    <!-- END Footer -->
-	<script>
-
-		function coffeeTemplate(coffee){
-			let myReturn = '';
-
-			myReturn = `<img src="${coffee.pic}" alt="Our ${coffee.pic} tastes great!" id="coffee" />
-            <strong class="feature">${coffee.day}'s Coffee Special:</strong> ${coffee.day}'s daily coffee special is <strong class="feature">${coffee.name}</strong>, ${coffee.disc}</p>`;
-
-			return myReturn;
-		}
-
-		let myDate = new Date();
-
-		let today = myDate.getDay();
-
-		let coffee = " ";
-
-		alert(today);
-		
-		switch(today){
-		
-			case 4: 
-			
-				coffee = {
-					name: "Pumpkin Spice Latte",
-					pic: "images/pumpkin-spice.jpg",
-					alt: "Pumpkin Spice Coffee",
-					day: "Thursday",
-					color: "coral", 
-					desc: `I love me some Pumpkin Spice`,
-				};
-
-			break; 
-
-		}
-
-		console.log(coffee);
-
-	</script>
+	<!-- END Footer -->
 	
+	 <script>
+ 
+	 	function coffeeTemplate(coffee){
+	 		let myReturn = '';
+ 
+ 			myReturn = `<img src="${coffee.pic}" alt="Our ${coffee.pic} tastes  great!" id="coffee" />
+             <strong class="feature">${coffee.day}'s Coffee Special:</strong> ${coffee.day}'s daily coffee special is <strong class="feature">${coffee.name}</strong>, ${coffee.disc}</p>`;
+ 
+	 		return myReturn;
+	 	}
+ 
+ 		let myDate = new Date();
+ 
+ 		let today = myDate.getDay();
+ 
+ 		let coffee = " ";
+ 
+ 		alert(today);
+ 		
+ 		switch(today){
+ 		
+ 			case 4: 
+ 			
+ 				coffee = {
+ 					name: "Pumpkin Spice Latte",
+ 					pic: "images/pumpkin-spice.jpg",
+ 					alt: "Pumpkin Spice Coffee",
+ 					day: "Thursday",
+ 					color: "coral", 
+ 					desc: `I love me some Pumpkin Spice`,
+ 				};
+ 
+ 			break; 
+ 
+ 		}
+  
+ 		console.log(coffee);
+ 
+ 	</script>
+  	
 </body>
 </html>
