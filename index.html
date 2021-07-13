@@ -68,10 +68,21 @@
 				<li>A paragraph of content that describes the daily item, including the day of the week. </li>
 				<li>A unique color that supports the image and paragraph of content</li>
 		</ul>
-		 <p>
+		<div id="mydiv"> </div>
+		<!-- <p>
     		 <img src="images/pumpkin-spice-latte.jpg" alt="Our Pumpkin Spice Latte tastes great on a Fall Day!" id="coffee" />
            <strong class="feature">Monday's Coffee Special:</strong> Monday's daily coffee special is <strong class="feature">Pumpkin Spice Latte</strong>, which makes us wish it was always Fall, as this is one of our top sellers!</p>
-     
+		-->
+	<h3> Coffee Specials for Each Day of the Week</h3>
+	<p><a href="?day=0">Sunday</a></p>
+	<p><a href="?day=1">Monday</a></p>
+	<p><a href="?day=2">Tuesday</a></p>
+	<p><a href="?day=3">Wednesday</a></p>
+	<p><a href="?day=4">Thursday</a></p>
+	<p><a href="?day=5">Friday</a></p>
+	<p><a href="?day=6">Saturday</a></p>
+
+
      </main>
     <footer>
       <small>&copy; 2014-2015, All Rights Reserved ~
@@ -86,8 +97,9 @@
 	 	function coffeeTemplate(coffee){
 	 		let myReturn = '';
  
- 			myReturn = `<img src="${coffee.pic}" alt="Our ${coffee.pic} tastes  great!" id="coffee" />
-             <strong class="feature">${coffee.day}'s Coffee Special:</strong> ${coffee.day}'s daily coffee special is <strong class="feature">${coffee.name}</strong>, ${coffee.disc}</p>`;
+ 			myReturn = `<p>
+			 <img src="${coffee.pic}" alt="Our ${coffee.pic} tastes  great!" id="coffee" />
+             <strong class="feature">${coffee.day}'s Coffee Special:</strong> ${coffee.day}'s daily coffee special is <strong class="feature">${coffee.name}</strong>, ${coffee.desc}</p>`;
  
 	 		return myReturn;
 	 	}
@@ -98,15 +110,77 @@
  
  		let coffee = " ";
  
- 		alert(today);
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+		
+		//if data is being passed 
+		if(urlParams.has('day')){
+		today = urlParams.get('day');
+		today = parseInt(today);
+		}
+
+		//console.log(urlParams);
+ 		//alert(today);
  		
  		switch(today){
  		
+			case 0: 
+ 			
+			 coffee = {
+				 name: "Bubble tea",
+				 pic: "images/bubble-tea.jpg",
+				 alt: "Bubble tea",
+				 day: "Sunday",
+				 color: "#fad6a5", 
+				 desc: `I love bubbles in my tea`,
+			 };
+ 
+			 break;
+
+			 case 1: 
+ 			
+			 coffee = {
+				 name: "Caramel Latte",
+				 pic: "images/caramel-latte.jpg",
+				 alt: "Caramel Latte",
+				 day: "Monday",
+				 color: "#cd7f32", 
+				 desc: `I could drink a Caramel Latte everyday`,
+			 };
+ 
+			 break;
+
+			case 2: 
+ 			
+			coffee = {
+				name: "Drip",
+				pic: "images/drip.jpg",
+				alt: "Drip Coffee",
+				day: "Tuesday",
+				color: "saddlebrown", 
+				desc: `Give me the drip!`,
+			};
+
+			break;
+
+			case 3: 
+ 			
+			 coffee = {
+				 name: "Cold Brew",
+				 pic: "images/cold-brew.jpg",
+				 alt: "Cold Brew",
+				 day: "Wednesday",
+				 color: "#3d2b1f", 
+				 desc: `Cold brew on a hot day Yumm!`,
+			 };
+ 
+			 break;
+
  			case 4: 
  			
  				coffee = {
  					name: "Pumpkin Spice Latte",
- 					pic: "images/pumpkin-spice.jpg",
+ 					pic: "images/pumpkin-spice-latte.jpg",
  					alt: "Pumpkin Spice Coffee",
  					day: "Thursday",
  					color: "coral", 
@@ -115,9 +189,40 @@
  
  			break; 
  
+			 case 5: 
+ 			
+			 coffee = {
+				 name: "Frappaccino",
+				 pic: "images/frappaccino.jpg",
+				 alt: "Frappaccino",
+				 day: "Friday",
+				 color: "lightpink", 
+				 desc: `Fridays are my frappaccino cheat day!`,
+			 };
+ 
+			 break;
+
+			 case 6: 
+ 			
+			 coffee = {
+				 name: "Mocha",
+				 pic: "images/mocha.jpg",
+				 alt: "Mocha",
+				 day: "Saturday",
+				 color: "#4e1609", 
+				 desc: `Ooo so Chocolaty!`,
+			 };
+ 
+			 break;
+
+
  		}
   
- 		console.log(coffee);
+		document.getElementById('mydiv').innerHTML = coffeeTemplate(coffee)
+		document.querySelector('.feature').style.color = coffee.color
+		document.querySelector('html').style.backgroundColor = coffee.color
+
+		console.log(coffee);
  
  	</script>
   	
